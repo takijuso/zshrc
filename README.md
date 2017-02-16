@@ -1,0 +1,5 @@
+# zshrc
+
+```
+$ ./zsh-setup.bash
+```
