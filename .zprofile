@@ -1,16 +1,9 @@
 () {
-  if (( $+commands[rbenv] )); then
-    PATH=${HOME}/.rbenv/bin:${PATH}
-    export PATH
-    eval "$(rbenv init -)"
-  fi
-}
+  local anyenv_path="${HOME}/.anyenv"
 
-() {
-  if (( $+commands[pyenv] )); then
-    export PYENV_ROOT="${HOME}/.pyenv"
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
-    eval "$(pyenv init -)"
+  if [ -d "${anyenv_path}" ]; then
+    export PATH="${anyenv_path}/bin:$PATH"
+    eval "$(anyenv init -)"
   fi
 }
 
@@ -30,5 +23,17 @@
 () {
   if (( $+commands[yarn] )); then
     export PATH="$PATH:$(yarn global bin)"
+  fi
+}
+
+() {
+  if (( $+commands[direnv] )); then
+    eval "$(direnv hook zsh)"
+  fi
+}
+
+() {
+  if (( $+commands[thefuck] )); then
+    eval "$(thefuck --alias)"
   fi
 }
