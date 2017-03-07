@@ -64,3 +64,4 @@ export LANG=en_US.UTF-8
 
 source $HOME/.cargo/env
 
+export PATH=$PATH:/usr/local/Cellar/llvm/3.9.1/bin
