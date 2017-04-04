@@ -1,0 +1,7 @@
+# vim: ft=zsh
+
+() {
+  if (( $+commands[thefuck] )); then
+    eval "$(thefuck --alias)"
+  fi
+}

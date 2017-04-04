@@ -1,0 +1,7 @@
+# vim: ft=zsh
+
+() {
+  if (( $+commands[yarn] )); then
+    export PATH="$PATH:$(yarn global bin)"
+  fi
+}

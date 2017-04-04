@@ -1,0 +1,10 @@
+# vim: ft=zsh
+
+() {
+  local rbenv_path="${HOME}/.rbenv"
+
+  if [ -d "${rbenv_path}" ]; then
+    export PATH="${rbenv_path}/bin:$PATH"
+    eval "$(rbenv init -)"
+  fi
+}
