@@ -1,3 +1,5 @@
+# vim: ft=zsh
+
 autoload -U add-zsh-hook
 setopt prompt_subst
 
@@ -31,22 +33,12 @@ function _rbenv_prompt_info() {
   fi
 }
 
-function _pyenv_prompt_info() {
-  if (( $+commands[pyenv] )); then
-    pyenv_prompt_info="(🐍  $(pyenv version-name))"
-  else
-    pyenv_prompt_info="(no pyenv)"
-  fi
-}
-
 add-zsh-hook precmd _git_prompt_info
 add-zsh-hook precmd _rbenv_prompt_info
-add-zsh-hook precmd _pyenv_prompt_info
 
 # For changing directory via peco-select-repository
 add-zsh-hook chpwd _git_prompt_info
 add-zsh-hook chpwd _rbenv_prompt_info
-add-zsh-hook chpwd _pyenv_prompt_info
 
 () {
   local user='%{%F{cyan}%}%n%{%f%}'
@@ -57,5 +49,5 @@ add-zsh-hook chpwd _pyenv_prompt_info
   local git='$git_prompt_info'
   local nl=$'\n'
   PROMPT="${user} (${via}${host}) ${dir} ${git}${nl}${smiley}  "
-  RPROMPT='${rbenv_prompt_info} ${pyenv_prompt_info}'
+  RPROMPT='${rbenv_prompt_info}'
 }
