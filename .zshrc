@@ -56,7 +56,7 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 autoload -Uz select-word-style
 select-word-style bash
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Workaround https://coderwall.com/p/-k_93g/mac-os-x-valueerror-unknown-locale-utf-8-in-python
 export LC_ALL=en_US.UTF-8
